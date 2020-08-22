@@ -1,12 +1,17 @@
-
-import React from 'react';
+import React, { useContext } from 'react';
+import { TopContext } from './providers';
 // import {connect} from 'react-redux';
 // import actions from './actions';
 import './App.css';
 
-// 虽然在 index 中看起来 App 组件没有任何props
-// Consumer 中 通过 React.cloneElement 给 App 组件增加了 props
-function App({food, searchTerm, searchTermChanged, addNew}) {
+
+function App() {
+
+  const {allFood, searchTerm, searchTermChanged, addNew} = useContext(TopContext);
+  const food = searchTerm
+  ? allFood.filter((food) => food.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1)
+  : allFood;
+
   return (
     <div>
       <div className="search">

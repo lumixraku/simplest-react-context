@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 // import {createStore} from 'redux';
 // import reducers from './reducers';
 import App from './App';
+import Provider, { TopContext } from './providers';
 
 // Creating the store using the reducers info.
 // That's because reducers are the building blocks of a Redux Store.
@@ -17,14 +18,15 @@ import App from './App';
 // );
 
 
-import Provider from './providers';
-import Consumer from './consumer';
+// import Provider from './providers';
+// import Consumer from './consumer';
+
+
+
 
 ReactDOM.render(
   <Provider>
-    <Consumer>
       <App />
-    </Consumer>
   </Provider>,
   document.getElementById('root')
 );

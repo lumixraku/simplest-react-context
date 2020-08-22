@@ -1,8 +1,6 @@
 import React from "react";
 import { ThemeContext } from "./providers";
 
-
-
 export default class Consumer extends React.Component {
 	render() {
 		const { children } = this.props;
@@ -10,11 +8,11 @@ export default class Consumer extends React.Component {
 		return (
 			<ThemeContext.Consumer>
 				{
-          // some thing like reducer ???
+					// some thing like reducer ???
 					// ({ allFood, searchTerm, searchTermChanged }) => {
-          // props 来自 ThemeContext.Provider 的 value
-            (props) => {
-            const { allFood, searchTerm, searchTermChanged, addNew} = props;
+					// props 来自 ThemeContext.Provider 的 value
+					(props) => {
+						const { allFood, searchTerm, searchTermChanged, addNew } = props;
 						const food = searchTerm
 							? allFood.filter((food) => food.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1)
 							: allFood;
@@ -23,8 +21,8 @@ export default class Consumer extends React.Component {
 							React.cloneElement(child, {
 								food,
 								searchTerm,
-                searchTermChanged,
-                addNew
+								searchTermChanged,
+								addNew,
 							})
 						);
 					}
